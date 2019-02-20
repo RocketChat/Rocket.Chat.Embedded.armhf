@@ -1,7 +1,8 @@
 # armhf deployment support for Rocket.Chat  (Raspberry Pi and compatible servers)
 
-Files for deploying Rocket.Chat on ARMHF (32 bit) SoC systems and servers.   Including:
+DevOps for deploying Rocket.Chat 1.0+ on ARMHF (32 bit) SoC systems and servers.   
 
+Including:
 * snap suitable for installation on Raspberry Pi
 * docker (possibly kubernetes) support 
 
