@@ -1,10 +1,13 @@
-# pi-armhf-snap
+# armhf deployment support for Rocket.Chat  (primarily for Raspberry Pi)
 
-Files for building ARMHF snaps suitable for installation on Raspberry Pi.
+Files for deploying Rocket.Chat on ARMHF (32 bit) SoC systems and servers.   Including:
+
+* snap suitable for installation on Raspberry Pi
+* docker and kubernetes support 
 
 This project will be maintained independently of the main Rocket.Chat build, until the end of life of 32 bit ARMHF SoC boards - mainly the Raspberry Pi.
 
-Decision has been made not to merge with mainstream snapcraft build files for the following reason:
+Decision has been made NOT to merge with mainstream snapcraft build files for the following reason:
 
 1) inconsistency in support of Mongo makes one-file-fit-all impossible
 2) inconsistency in naming of architecture --  armhf  armv7  armv7l and so on
