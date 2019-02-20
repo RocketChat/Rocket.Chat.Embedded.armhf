@@ -3,7 +3,7 @@
 Files for deploying Rocket.Chat on ARMHF (32 bit) SoC systems and servers.   Including:
 
 * snap suitable for installation on Raspberry Pi
-* docker and kubernetes support 
+* docker (possibly kubernetes) support 
 
 This project will be maintained independently of the main Rocket.Chat build, until the end of life of 32 bit ARMHF SoC boards - mainly the Raspberry Pi.
 
