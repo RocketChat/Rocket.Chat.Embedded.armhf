@@ -1,0 +1,16 @@
+#! /bin/bash
+
+if [[ $(uname -m) == "x86_64" ]]
+then
+    wget --backups=0 "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-3.2.7.tgz"
+    tar -zxf ./mongodb-linux-x86_64-ubuntu1604-3.2.7.tgz --strip-components=1
+else
+    wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongo"
+    wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongod"
+    wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongos"
+    mkdir bin
+    mv mongo* bin
+    chmod +x bin/mongo
+    chmod +x bin/mongod
+    chmod +x bin/mongos
+fi
