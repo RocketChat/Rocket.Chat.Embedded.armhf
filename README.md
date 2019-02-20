@@ -9,5 +9,6 @@ Decision has been made not to merge with mainstream snapcraft build files for th
 1) inconsistency in support of Mongo makes one-file-fit-all impossible
 2) inconsistency in naming of architecture --  armhf  armv7  armv7l and so on
 3) including ARMHF support branching within the snapcraft file often introduces problems and bugs in mainstream x86 builds
-4) due to the need to build fibres and sharp library natively - snap build *must* be executed on ARM HF hardware - no known robust emulator is available publicly 
+4) due to the need to build fibres and sharp library natively - snap build *must* be executed on ARMHF hardware - no known robust emulator is available publicly 
+5) End of Life for ARMHF or 32 bit support is quickly arriving; with the latest Raspberry Pi 3+ already supporting full 64bit OSes
 
