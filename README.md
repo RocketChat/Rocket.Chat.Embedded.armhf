@@ -1,4 +1,4 @@
-# armhf deployment support for Rocket.Chat  (primarily for Raspberry Pi)
+# armhf deployment support for Rocket.Chat  (Raspberry Pi and compatible servers)
 
 Files for deploying Rocket.Chat on ARMHF (32 bit) SoC systems and servers.   Including:
 
