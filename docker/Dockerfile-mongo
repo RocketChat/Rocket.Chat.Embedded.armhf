@@ -25,14 +25,18 @@ RUN adduser --ingroup nogroup --shell /etc/false --disabled-password --gecos "" 
     && rm -Rf /tmp/*
 
 # This copies contents of dir config to /root
-COPY config /root
-RUN mv /root/mongodb.conf /etc/mongodb.conf \
-    && mv /root/mongodb.service /lib/systemd/system/mongodb.service \
-    && chmod 755 /root/run.sh
+#COPY config /root
+# RUN mv /root/mongodb.conf /etc/mongodb.conf \
+#    && mv /root/mongodb.service /lib/systemd/system/mongodb.service \
+#    && chmod 755 /root/run.sh
 
-VOLUME ["/data"]
+VOLUME ["/data/db"]
 
 EXPOSE 27017
+EXPOSE 28017
 
-CMD ["/root/run.sh"]
+WORKDIR  /data
+#CMD ["/root/run.sh"]
+ENTRYPOINT ["mongod", "--storageEngine=mmapv1"]
+CMD ["--smallfiles"]
 
