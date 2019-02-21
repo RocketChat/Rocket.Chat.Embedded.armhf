@@ -1,12 +1,17 @@
 FROM balenalib/rpi-raspbian
 # Original MAINTAINER Chip Dickson <cdickson@sumglobal.com> - Mongo 3.2 for RPI
 
-RUN apt-get update && apt-get upgrade -y
-#    apt-get -y install wget && \
+RUN apt-get update && apt-get upgrade -y   \
+  && apt-get -y install wget 
 #    apt-get -y install binutils && \
 #    apt-get install libssl1.0.0 libssl-dev -y
 # This copies contents of dir mongo3-2 to /usr/bin
-COPY mongo3-2 /usr/bin
+RUN wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongo" \ 
+&& wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongod"  \ 
+&& wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongos" \
+&& mv mongo /usr/bin \
+&& mv mongod /usr/bin \
+&& mv mongos /usr/bin
 
 RUN adduser --ingroup nogroup --shell /etc/false --disabled-password --gecos "" --no-create-home mongodb \
     && chown root:root /usr/bin/mongo* \
