@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  mongo:
+    image: rc-mong:latest
+    entrypoint: mongod --smallfiles --storageEngine=mmapv1
+  rocketchat:
+    image: rocket-chat:latest
+    environment:
+      ROOT_URL: 'http://localhost'
+    ports:
+      - "80:3000"
