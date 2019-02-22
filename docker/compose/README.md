@@ -12,14 +12,13 @@ Examine the logs to see that the server is listening to connections:
 ```
 docker logs compose_mongo_1 
 ```
-Next, you need to this ONE TIME ONLY - to initialize the replicaset in mongo.  This makes the mongo server into a single primary node replicaset.
+Next, you need to do this ONE TIME ONLY - to initialize the replicaset in mongo.  This turns the mongo server into a single primary  replicaset node.
 
 ```
 docker.compose run --rm  mongo-init-replica
 ```
 
 You should see output similar to:
-
 
 ```
 compose_mongo_1 is up-to-date
@@ -30,9 +29,7 @@ mongo-init-replica_1  | connecting to: mongo/rocketchat
 mongo-init-replica_1  | { "ok" : 1 }
 compose_mongo-init-replica_1 exited with code 0
 ```
-
 Note the `{ "ok" : 1 }` responose.
-
 
 You can also check that the mongo server indeed has started up as a PRIMARY node via the logs:
 
@@ -41,7 +38,6 @@ docker logs compose_mongo_1
 ```
 
 Look for similar message to ones below:
-
 
 ```
 2019-02-22T07:54:59.517+0000 I REPL     [ReplicationExecutor] This node is localhost:27017 in the config
