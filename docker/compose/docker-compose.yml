@@ -4,10 +4,18 @@ services:
     image: rcmongo
     volumes:
       - "${PWD}/data:/data/db"
-    entrypoint: mongod --smallfiles --storageEngine=mmapv1
+    entrypoint: mongod --smallfiles --storageEngine=mmapv1 --oplogSize 128 --replSet rs0
+  mongo-init-replica:
+    image: rcmongo
+    entrypoint: 'mongo mongo/rocketchat --eval "rs.initiate({ _id: ''rs0'', members: [ { _id: 0, host: ''localhost:27017'' } ]})"'
+    depends_on:
+      - mongo
   rocketchat:
-    image: rc
+    image: rc:lastest
     environment:
-      ROOT_URL: 'http://localhost'
+      - ROOT_URL=http://localhost:3000
+      - MONGO_URL=mongodb://mongo:27017/rocketchat
+      - MONGO_OPLOG_URL=mongodb://mongo:27017/local
+      - MAIL_URL=smtp://smtp.email
     ports:
-      - "80:3000"
+      - "3000:3000"
