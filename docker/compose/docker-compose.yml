@@ -1,10 +1,12 @@
 version: '3.6'
 services:
   mongo:
-    image: rc-mong:latest
+    image: rcmongo
+    volumes:
+      - "${PWD}/data:/data/db"
     entrypoint: mongod --smallfiles --storageEngine=mmapv1
   rocketchat:
-    image: rocket-chat:latest
+    image: rc
     environment:
       ROOT_URL: 'http://localhost'
     ports:
