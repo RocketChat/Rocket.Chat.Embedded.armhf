@@ -1,4 +1,4 @@
-# armhf deployment support for Rocket.Chat  (Raspberry Pi and compatible servers)
+# Rocket.Chat deployment (on Raspberry Pi and compatible ARMHF 32bit SoC servers)
 
 DevOps for deploying Rocket.Chat 1.0+ on ARMHF (32 bit) SoC systems and servers.   
 
