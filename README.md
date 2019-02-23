@@ -16,3 +16,8 @@ Decision has been made NOT to merge with mainstream snapcraft build files for th
 4) due to the need to build fibres and sharp library natively - snap build *must* be executed on ARMHF hardware - no known robust emulator is available publicly 
 5) End of Life for ARMHF or 32 bit support is quickly arriving; with the latest Raspberry Pi 3+ already supporting full 64bit OSes
 
+## snap and docker
+
+The `snap` directory contains working and tested source to build a Rocket.Chat 1.0 snap for ARMHF 32 bit server on Raspberry Pi or other SoC boards.
+
+The `docker` directory contains working and tested source files to build mongodb and Rocket.Chat docker images for ARMHF 32bit servers.  It also contains a tested docker-compose file for starting mongo, initializing replicaset and oplog, and starting the Rocket.Chat server.
