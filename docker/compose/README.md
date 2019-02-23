@@ -1,17 +1,29 @@
 # docker compose to start an RC server
 
-You need to first startup the mongo server:
+## Quick start
+
+First, you need to make sure you have the `rc`  and `mongo` docker images build and available in your docker registry.
+
+See the `README.md` in each of the `rocketchat` and `mongo` directory on how to build the images.
+
+### start up mongo server
+
+Once you have the images built, make sure you have a `data` directory - then you can startup the mongo server:
 
 ```
 docker.compose up -d mongo
 ```
-Note that the mongo server will use the data directory to store the data files.   You can take a look to see that it is populated.
+
+The mongo server will use the `data` directory to store the rocketchat data.   You can take a look in the directory to see that it is populated.
 
 Examine the logs to see that the server is listening to connections:
 
 ```
 docker logs compose_mongo_1 
 ```
+
+### initialize mongo replicaset
+
 Next, you need to do this ONE TIME ONLY - to initialize the replicaset in mongo.  This turns the mongo server into a single primary  replicaset node.
 
 ```
@@ -51,6 +63,25 @@ Look for similar message to ones below:
 2019-02-22T07:54:59.524+0000 I REPL     [ReplicationExecutor] transition to PRIMARY
 2019-02-22T07:54:59.531+0000 I NETWORK  [conn1] end connection 172.18.0.3:56380 (0 connections now open)
 ```
+Note that mongo node is now a PRIMARY node. Your mongo server is now up and running as a single node PRIMARY replicaset.
+
+### start the rocketchat server
+
+With the mongo server up and running, you can now start the rocketchat server.  Use the command:
+
+```
+docker.compose up -d rocketchat
+```
+
+Starting the rocketchat server on a Raspberry Pi or 32 bit ARM SoC board will probably take a minute or two, so please be patient.
+
+Meanwhile, you can check the logs to see the progress:
+
+```
+docker logs compose_rocketchat_1
+```
+
+Keep checking the logs until you see the `SERVER RUNNING` message box similar to the one below:
 
 ```
 Updating process.env.MAIL_URL
@@ -73,4 +104,8 @@ Loaded the Apps Framework and loaded a total of 0 Apps!
 ➔ |                                              |
 ➔ +----------------------------------------------+
 ```
+
+Now your Rocket.Chat server is fully up and running on the Raspberry Pi  or 32bit ARMHF SoC server/board!
+
+
 
