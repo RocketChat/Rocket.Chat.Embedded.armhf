@@ -3,7 +3,7 @@
 curl -SLf "https://releases.rocket.chat/0.74.3/download/" -o rocket.chat.tgz
 
 tar xvf rocket.chat.tgz --strip 1
-
+rm rocket.chat.tgz
 
 cd programs/server
 rm -rf npm/node_modules/meteor/emojione_emojione/node_modules/grunt-contrib-qunit
