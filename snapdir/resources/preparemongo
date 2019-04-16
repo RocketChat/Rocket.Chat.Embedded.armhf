@@ -8,9 +8,17 @@ else
     wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongo"
     wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongod"
     wget --backups=0 "https://github.com/SUMGlobal/rpi-mongodb/raw/master/mongo3-2/mongos"
+    wget --backups=0 "https://github.com/Sing-Li/bbug/raw/master/mongotools/mongodump"
+    wget --backups=0 "https://github.com/Sing-Li/bbug/raw/master/mongotools/mongoimport"
+    wget --backups=0 "https://github.com/Sing-Li/bbug/raw/master/mongotools/mongoexport"
+    wget --backups=0 "https://github.com/Sing-Li/bbug/raw/master/mongotools/mongorestore"
     mkdir bin
     mv mongo* bin
     chmod +x bin/mongo
     chmod +x bin/mongod
     chmod +x bin/mongos
+    chmod +x bin/mongodump
+    chmod +x bin/mongoimport
+    chmod +x bin/mongorestore
+    chmod +x bin/mongoexport
 fi
