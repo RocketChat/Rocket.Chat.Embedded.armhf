@@ -20,4 +20,8 @@ Decision has been made NOT to merge with mainstream snapcraft build files for th
 
 The `snap` directory contains working and tested source to build a Rocket.Chat 1.0 snap for ARMHF 32 bit server on Raspberry Pi or other SoC boards.
 
+### IMPORTANT: For armhf users, 1.3.2 version is FINAL snap distribution
+
+There will be no 2.x or further distribution on armhf snap because MongoDB 3.2 (only available full mongo on 32bit armhf) is now discontinued.   Please switch to arm64 if you require versions beyond 1.3.2    All Raspberry Pi 3+ and beyond supports arm64.
+
 The `docker` directory contains working and tested source files to build mongodb and Rocket.Chat docker images for ARMHF 32bit servers.  It also contains a tested docker-compose file for starting mongo, initializing replicaset and oplog, and starting the Rocket.Chat server.
